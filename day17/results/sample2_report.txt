@@ -1,0 +1,47 @@
+======================================================================
+CODE ANALYSIS REPORT
+======================================================================
+
+METADATA
+----------------------------------------------------------------------
+Language:      python
+Total lines:   93
+Code lines:    82
+Comment lines: 1
+Blank lines:   10
+Functions:     9
+Classes:       1
+Imports:       1
+
+Function list: calc, process_data, analyze, __init__, process, process_type_a, process_type_b, process_type_c, main
+
+STATIC ANALYSIS
+----------------------------------------------------------------------
+Complexity score: 4
+Issues found:     3
+Code smells:      2
+
+Code Smells:
+  - Low comment ratio (1.2%) - consider adding more documentation
+  - Multiple magic numbers detected - consider using named constants
+
+Issues (first 10):
+  ℹ️ Line 37: TODO/FIXME comment found
+  ℹ️ Line 72: TODO/FIXME comment found
+  ⚠️ Line 72: Use of eval/exec is potentially dangerous
+
+QUALITY ASSESSMENT
+----------------------------------------------------------------------
+Quality Score: 89.0/100
+Rating: Good
+
+Recommendations:
+  - Address 2 code smell(s)
+  - Fix 1 high-severity issue(s) immediately
+  - Add more comments and documentation
+
+AI-GENERATED DOCUMENTATION
+----------------------------------------------------------------------
+AI documentation not available (no Gemini client provided)
+
+======================================================================

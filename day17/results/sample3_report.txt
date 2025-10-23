@@ -1,0 +1,39 @@
+======================================================================
+CODE ANALYSIS REPORT
+======================================================================
+
+METADATA
+----------------------------------------------------------------------
+Language:      javascript
+Total lines:   102
+Code lines:    77
+Comment lines: 5
+Blank lines:   20
+Functions:     2
+Classes:       1
+Imports:       0
+
+Function list: calculateTax, formatPrice
+
+STATIC ANALYSIS
+----------------------------------------------------------------------
+Complexity score: 2
+Issues found:     0
+Code smells:      1
+
+Code Smells:
+  - Multiple magic numbers detected - consider using named constants
+
+QUALITY ASSESSMENT
+----------------------------------------------------------------------
+Quality Score: 97.0/100
+Rating: Excellent
+
+Recommendations:
+  - Address 1 code smell(s)
+
+AI-GENERATED DOCUMENTATION
+----------------------------------------------------------------------
+AI documentation not available (no Gemini client provided)
+
+======================================================================

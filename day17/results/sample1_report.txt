@@ -1,0 +1,42 @@
+======================================================================
+CODE ANALYSIS REPORT
+======================================================================
+
+METADATA
+----------------------------------------------------------------------
+Language:      python
+Total lines:   118
+Code lines:    88
+Comment lines: 0
+Blank lines:   30
+Functions:     11
+Classes:       1
+Imports:       2
+
+Function list: __init__, add, subtract, multiply, divide, power, get_history, clear_history, _record_operation, calculate_average
+               ... and 1 more
+
+STATIC ANALYSIS
+----------------------------------------------------------------------
+Complexity score: 1
+Issues found:     0
+Code smells:      2
+
+Code Smells:
+  - Low comment ratio (0.0%) - consider adding more documentation
+  - Multiple magic numbers detected - consider using named constants
+
+QUALITY ASSESSMENT
+----------------------------------------------------------------------
+Quality Score: 99.0/100
+Rating: Excellent
+
+Recommendations:
+  - Address 2 code smell(s)
+  - Add more comments and documentation
+
+AI-GENERATED DOCUMENTATION
+----------------------------------------------------------------------
+AI documentation not available (no Gemini client provided)
+
+======================================================================
