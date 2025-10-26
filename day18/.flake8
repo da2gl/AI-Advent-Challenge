@@ -1,0 +1,60 @@
+[flake8]
+# Flake8 configuration for Day 18 project
+
+# Maximum line length (120 is more reasonable for modern development)
+max-line-length = 120
+
+# Exclude directories
+exclude =
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    env,
+    ENV,
+    build,
+    dist,
+    *.egg-info,
+    .eggs,
+    data,
+    .pytest_cache
+
+# Ignore specific error codes
+ignore =
+    # E203: whitespace before ':' (conflicts with black formatter)
+    E203,
+    # W503: line break before binary operator (outdated PEP8)
+    W503,
+    # E402: module level import not at top (needed for sys.path modifications)
+    E402,
+    # F541: f-string without placeholders (sometimes used for consistency)
+    F541,
+
+# Per-file ignores
+per-file-ignores =
+    # webapp/app.py needs sys.path modification before imports
+    webapp/app.py:E402,F401
+    # __init__.py files often have unused imports for re-export
+    __init__.py:F401
+
+# Select error codes to check
+select =
+    E,  # pycodestyle errors
+    W,  # pycodestyle warnings
+    F,  # pyflakes (undefined names, unused imports, etc)
+    C,  # mccabe complexity
+
+# Maximum cyclomatic complexity
+max-complexity = 15
+
+# Show source code for each error
+show-source = True
+
+# Count errors
+count = True
+
+# Show statistics
+statistics = True
+
+# Format output
+format = %(path)s:%(row)d:%(col)d: %(code)s %(text)s

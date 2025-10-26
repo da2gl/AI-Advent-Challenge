@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Terminal Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+            <div class="terminal-title">gemini-chat@terminal:~$ </div>
+        </div>
+
+        <div class="terminal-body" id="terminal">
+            <div class="welcome-message">
+                <pre>
+╔═══════════════════════════════════════════════════════════════╗
+║                  GEMINI TERMINAL CHAT v1.0                   ║
+║              AI-Powered Web Chat Interface                   ║
+╚═══════════════════════════════════════════════════════════════╝
+
+Available Commands:
+  /clear               - Clear chat history
+  /model               - Change AI model
+  /deploy              - Deploy (railway/docker)
+  /status              - Show deployment status
+
+Type your message and press Enter to chat with Gemini AI...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                </pre>
+            </div>
+
+            <div id="chat-messages"></div>
+
+            <div class="input-line">
+                <span class="prompt">you@gemini:~$</span>
+                <input type="text" id="user-input" autocomplete="off" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

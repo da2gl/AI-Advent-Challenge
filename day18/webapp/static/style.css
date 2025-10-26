@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: 1000px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #2d2d2d;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #444;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn-close {
+    background: #ff5f56;
+}
+
+.btn-minimize {
+    background: #ffbd2e;
+}
+
+.btn-maximize {
+    background: #27c93f;
+}
+
+.terminal-title {
+    color: #c7c7c7;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.terminal-body {
+    background: #0a0a0a;
+    color: #00ff00;
+    padding: 20px;
+    height: 600px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.welcome-message {
+    color: #00dd00;
+    margin-bottom: 20px;
+}
+
+.welcome-message pre {
+    color: #00dd00;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#chat-messages {
+    margin-bottom: 20px;
+}
+
+.message {
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-user {
+    color: #00ff00;
+}
+
+.message-user .label {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+.message-assistant {
+    color: #ffff00;
+    margin-left: 0;
+}
+
+.message-assistant .label {
+    color: #ff00ff;
+    font-weight: bold;
+}
+
+.message-system {
+    color: #ff8800;
+    font-style: italic;
+}
+
+.message-error {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.message-success {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+#user-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    outline: none;
+    caret-color: #00ff00;
+}
+
+#user-input::selection {
+    background: #00ff00;
+    color: #0a0a0a;
+}
+
+/* Scrollbar styling */
+.terminal-body::-webkit-scrollbar {
+    width: 10px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 5px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Loading animation */
+.loading {
+    color: #00ff00;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0.3;
+    }
+}
+
+/* Cursor blink */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #00ff00;
+    animation: cursorBlink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes cursorBlink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Code blocks */
+.code-block {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-left: 3px solid #00ff00;
+    padding: 10px;
+    margin: 10px 0;
+    overflow-x: auto;
+    color: #aaffaa;
+}
+
+/* Links */
+a {
+    color: #00ddff;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #00ffff;
+}
+
+/* Deployment status */
+.deployment-status {
+    background: #1a1a1a;
+    border: 1px solid #444;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.deployment-stage {
+    margin: 5px 0;
+    padding-left: 10px;
+}
+
+.deployment-stage.success {
+    color: #00ff00;
+}
+
+.deployment-stage.error {
+    color: #ff0000;
+}
+
+.deployment-stage.pending {
+    color: #888;
+}
+
+.deployment-stage.running {
+    color: #ffff00;
+}

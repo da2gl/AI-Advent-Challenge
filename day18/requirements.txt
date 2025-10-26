@@ -1,0 +1,10 @@
+# Core dependencies
+requests==2.31.0
+rich==13.7.0
+
+# Web framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+
+# Production server
+gunicorn==21.2.0
