@@ -4,3 +4,6 @@
 [submodule "day19/requests-docs"]
 	path = day19/requests-docs
 	url = https://github.com/psf/requests.git
+[submodule "day21/koog"]
+	path = day21/koog
+	url = https://github.com/JetBrains/koog.git
