@@ -10,3 +10,6 @@
 [submodule "day22/koog"]
 	path = day22/koog
 	url = https://github.com/JetBrains/koog.git
+[submodule "day23/koog"]
+	path = day22/koog
+	url = https://github.com/JetBrains/koog.git
