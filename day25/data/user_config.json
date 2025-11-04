@@ -1,0 +1,23 @@
+{
+  "user_profile": {
+    "name": "Denis",
+    "role": "Developer",
+    "communication_style": "casual",
+    "preferences": {
+      "response_length": "concise",
+      "code_style": "clean",
+      "explanation_level": "intermediate"
+    },
+    "interests": [],
+    "habits": [],
+    "timezone": "UTC",
+    "language_preference": "English"
+  },
+  "generation_settings": {
+    "temperature": 0.7,
+    "top_k": 40,
+    "top_p": 0.95,
+    "max_output_tokens": 2048
+  },
+  "system_instruction": "You are a helpful AI assistant."
+}
