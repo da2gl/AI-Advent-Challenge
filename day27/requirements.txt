@@ -1,0 +1,21 @@
+requests==2.31.0
+rich==13.7.0
+chromadb==0.5.23
+posthog>=2.4.0,<6.0.0  # Required for ChromaDB telemetry compatibility
+pypdf2==3.0.1
+numpy<2.0.0
+ollama>=0.1.0
+groq>=0.4.0
+pyaudio
+
+# MCP (Model Context Protocol) for file operations and shell execution
+mcp>=0.9.0
+
+# Testing framework
+pytest>=7.0.0
+pytest-json-report>=1.5.0
+
+# Autocomplete for @ file mentions
+prompt-toolkit>=3.0.0
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.12.0

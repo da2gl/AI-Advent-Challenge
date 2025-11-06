@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/glavatskikh/IdeaProjects/AI-Advent-Challenge/day27"
+      ]
+    },
+    "shell": {
+      "command": "python",
+      "args": [
+        "mcp_integration/shell_server.py"
+      ]
+    }
+  }
+}
