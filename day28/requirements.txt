@@ -1,0 +1,172 @@
+# God Agent - Comprehensive Requirements
+# Ultimate AI Personal Assistant with Maximum Features
+
+# ═══════════════════════════════════════════════════════════
+# Core Dependencies (from day27)
+# ═══════════════════════════════════════════════════════════
+
+# HTTP Client
+requests==2.31.0
+
+# Terminal UI
+rich==13.7.0
+
+# Vector Database for RAG
+chromadb==0.5.23
+posthog>=2.4.0,<6.0.0  # Required for ChromaDB telemetry compatibility
+numpy<2.0.0
+
+# PDF Processing
+pypdf2==3.0.1
+
+# LLM Providers
+ollama>=0.1.0  # Local LLM via Ollama
+google-generativeai>=0.3.0  # Google Gemini API
+
+# Voice Input
+groq>=0.4.0  # Groq Whisper API for speech-to-text
+pyaudio  # Audio recording
+
+# MCP (Model Context Protocol)
+mcp>=0.9.0  # File operations, shell execution, and tool integration
+
+# Testing Framework
+pytest>=7.0.0
+pytest-json-report>=1.5.0
+
+# Autocomplete for @ file mentions
+prompt-toolkit>=3.0.0
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.12.0
+
+# ═══════════════════════════════════════════════════════════
+# Web Server (FastAPI) - NEW
+# ═══════════════════════════════════════════════════════════
+
+fastapi>=0.104.0  # Modern web framework
+uvicorn[standard]>=0.24.0  # ASGI server
+python-multipart>=0.0.6  # File upload support
+websockets>=12.0  # WebSocket support
+python-jose[cryptography]>=3.3.0  # JWT authentication (optional)
+passlib[bcrypt]>=1.7.4  # Password hashing (optional)
+
+# ═══════════════════════════════════════════════════════════
+# Task Scheduling (APScheduler) - NEW
+# ═══════════════════════════════════════════════════════════
+
+apscheduler>=3.10.0  # Production-ready task scheduling
+pytz>=2023.3  # Timezone support
+
+# ═══════════════════════════════════════════════════════════
+# Code Analysis - NEW
+# ═══════════════════════════════════════════════════════════
+
+# Static code analysis (optional enhancements)
+pylint>=3.0.0  # Python linting
+flake8>=6.1.0  # Python style checker
+bandit>=1.7.5  # Security issue scanner
+radon>=6.0.1  # Code metrics and complexity
+
+# ═══════════════════════════════════════════════════════════
+# Deployment Automation - NEW
+# ═══════════════════════════════════════════════════════════
+
+# Docker support
+docker>=6.1.0  # Docker API client
+
+# ═══════════════════════════════════════════════════════════
+# Database & Storage
+# ═══════════════════════════════════════════════════════════
+
+# SQLite is built-in to Python
+# But we use these for advanced features:
+sqlalchemy>=2.0.0  # ORM for complex queries (optional)
+alembic>=1.12.0  # Database migrations (optional)
+
+# ═══════════════════════════════════════════════════════════
+# Monitoring & Logging
+# ═══════════════════════════════════════════════════════════
+
+# Structured logging
+structlog>=23.2.0  # Better logging
+python-json-logger>=2.0.7  # JSON log formatting
+
+# Performance monitoring
+psutil>=5.9.6  # System and process utilities
+
+# ═══════════════════════════════════════════════════════════
+# Utilities
+# ═══════════════════════════════════════════════════════════
+
+# Date and time
+python-dateutil>=2.8.2
+
+# Configuration
+python-dotenv>=1.0.0  # Environment variables from .env
+pydantic>=2.0.0  # Data validation
+pydantic-settings>=2.0.0  # Settings management
+
+# File handling
+pathlib2>=2.3.7  # Enhanced path handling
+aiofiles>=23.2.1  # Async file operations
+
+# HTTP/API utilities
+httpx>=0.25.0  # Async HTTP client
+aiohttp>=3.9.0  # Alternative async HTTP
+
+# ═══════════════════════════════════════════════════════════
+# Development Tools (Optional)
+# ═══════════════════════════════════════════════════════════
+
+# Code formatting
+black>=23.11.0  # Code formatter
+isort>=5.12.0  # Import sorter
+
+# Type checking
+mypy>=1.7.0  # Static type checker
+
+# Documentation
+mkdocs>=1.5.3  # Documentation generator
+mkdocs-material>=9.4.14  # Material theme for docs
+
+# ═══════════════════════════════════════════════════════════
+# Platform-Specific (macOS)
+# ═══════════════════════════════════════════════════════════
+
+# macOS notifications are handled via osascript (built-in)
+# No additional dependencies needed
+
+# ═══════════════════════════════════════════════════════════
+# Optional Enhancements
+# ═══════════════════════════════════════════════════════════
+
+# Rate limiting
+slowapi>=0.1.9  # Rate limiting for FastAPI
+
+# Caching
+redis>=5.0.0  # Redis client (if using Redis cache)
+hiredis>=2.2.3  # Redis performance boost
+
+# Metrics
+prometheus-client>=0.19.0  # Prometheus metrics
+
+# ═══════════════════════════════════════════════════════════
+# Notes
+# ═══════════════════════════════════════════════════════════
+
+# Install with:
+#   pip install -r requirements.txt
+
+# For development:
+#   pip install -r requirements.txt black isort mypy pylint
+
+# For production (minimal):
+#   pip install -r requirements.txt --no-dev
+
+# macOS users: If pyaudio fails, install portaudio first:
+#   brew install portaudio
+#   pip install pyaudio
+
+# For GPU support with Ollama:
+#   Ollama automatically detects and uses GPU if available
+#   No additional Python dependencies needed

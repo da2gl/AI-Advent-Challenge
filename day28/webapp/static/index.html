@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God Agent - Ultimate AI Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <i class="fas fa-robot"></i>
+                God Agent
+            </h1>
+            <nav class="nav">
+                <button class="nav-btn active" data-tab="chat">
+                    <i class="fas fa-comments"></i> Chat
+                </button>
+                <button class="nav-btn" data-tab="tasks">
+                    <i class="fas fa-tasks"></i> Tasks
+                </button>
+                <button class="nav-btn" data-tab="code">
+                    <i class="fas fa-code"></i> Code Analysis
+                </button>
+                <button class="nav-btn" data-tab="deploy">
+                    <i class="fas fa-rocket"></i> Deploy
+                </button>
+                <button class="nav-btn" data-tab="rag">
+                    <i class="fas fa-database"></i> Knowledge
+                </button>
+                <button class="nav-btn" data-tab="status">
+                    <i class="fas fa-chart-line"></i> Status
+                </button>
+            </nav>
+            <div class="theme-toggle">
+                <button id="theme-btn" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Chat Tab -->
+        <div id="chat-tab" class="tab-content active">
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <h3>Settings</h3>
+                    <div class="setting-group">
+                        <label>
+                            <input type="checkbox" id="use-rag" checked>
+                            Use RAG
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Temperature: <span id="temp-value">0.7</span></label>
+                        <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                    </div>
+                    <div class="setting-group">
+                        <button id="voice-btn" class="btn btn-primary">
+                            <i class="fas fa-microphone"></i> Voice Input
+                        </button>
+                    </div>
+                    <div class="setting-group">
+                        <button id="clear-chat" class="btn btn-secondary">
+                            <i class="fas fa-trash"></i> Clear Chat
+                        </button>
+                    </div>
+                </div>
+                <div class="chat-main">
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="message system">
+                            <div class="message-content">
+                                <strong>God Agent:</strong> Hello! I'm your ultimate AI assistant with capabilities including chat, task scheduling, code analysis, deployment, and more. How can I help you today?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-container">
+                        <textarea id="chat-input" placeholder="Type your message... (Shift+Enter for new line)" rows="2"></textarea>
+                        <button id="send-btn" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Tab -->
+        <div id="tasks-tab" class="tab-content">
+            <div class="panel">
+                <h2>Task Scheduler</h2>
+                <div class="task-controls">
+                    <button id="new-task-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> New Task
+                    </button>
+                    <button id="refresh-tasks-btn" class="btn btn-secondary">
+                        <i class="fas fa-sync"></i> Refresh
+                    </button>
+                </div>
+                <div id="tasks-list" class="tasks-list">
+                    <!-- Tasks will be loaded here -->
+                </div>
+            </div>
+
+            <!-- New Task Modal -->
+            <div id="task-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Create New Task</h2>
+                    <form id="task-form">
+                        <div class="form-group">
+                            <label>Task Name:</label>
+                            <input type="text" id="task-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>MCP Tool:</label>
+                            <input type="text" id="task-tool" placeholder="e.g., crypto_get_price" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tool Arguments (JSON):</label>
+                            <textarea id="task-args" rows="3" placeholder='{"symbol": "bitcoin"}'>{}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Schedule Type:</label>
+                            <select id="task-schedule-type">
+                                <option value="interval">Interval</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Schedule Value:</label>
+                            <input type="text" id="task-schedule-value" placeholder="e.g., 5 minutes, 10:00, Monday 09:00" required>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="task-ai-summary" checked>
+                                Use AI Summary
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Notification Level:</label>
+                            <select id="task-notification">
+                                <option value="all">All</option>
+                                <option value="significant">Significant</option>
+                                <option value="silent">Silent</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Task</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Analysis Tab -->
+        <div id="code-tab" class="tab-content">
+            <div class="panel">
+                <h2>Code Quality Analysis</h2>
+                <div class="code-input">
+                    <div class="form-group">
+                        <label>File Path:</label>
+                        <input type="text" id="code-filepath" placeholder="e.g., main.py" value="main.py">
+                    </div>
+                    <div class="form-group">
+                        <label>Code:</label>
+                        <textarea id="code-input" rows="15" placeholder="Paste your code here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Or upload file:</label>
+                        <input type="file" id="code-file-input" accept=".py,.js,.ts,.java,.go,.rs,.cpp,.c,.h">
+                    </div>
+                    <button id="analyze-code-btn" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Analyze Code
+                    </button>
+                </div>
+                <div id="code-results" class="code-results">
+                    <!-- Results will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Deployment Tab -->
+        <div id="deploy-tab" class="tab-content">
+            <div class="panel">
+                <h2>Deployment Pipeline</h2>
+                <div class="deploy-controls">
+                    <div class="form-group">
+                        <label>Platform:</label>
+                        <select id="deploy-platform">
+                            <option value="railway">Railway</option>
+                            <option value="docker">Docker</option>
+                        </select>
+                    </div>
+                    <button id="deploy-btn" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Deploy
+                    </button>
+                </div>
+                <div id="deploy-stages" class="deploy-stages">
+                    <!-- Deployment stages will appear here -->
+                </div>
+                <div id="deploy-results" class="deploy-results">
+                    <!-- Deployment results will appear here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- RAG Tab -->
+        <div id="rag-tab" class="tab-content">
+            <div class="panel">
+                <h2>Knowledge Base (RAG)</h2>
+                <div class="rag-section">
+                    <h3>Index Document</h3>
+                    <div class="form-group">
+                        <label>Content:</label>
+                        <textarea id="rag-content" rows="5" placeholder="Enter text to index..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Or upload file:</label>
+                        <input type="file" id="rag-file-input" accept=".txt,.md,.py,.js,.ts">
+                    </div>
+                    <button id="index-btn" class="btn btn-primary">
+                        <i class="fas fa-database"></i> Index
+                    </button>
+                </div>
+                <div class="rag-section">
+                    <h3>Search Knowledge</h3>
+                    <div class="form-group">
+                        <input type="text" id="rag-query" placeholder="Enter search query...">
+                    </div>
+                    <button id="search-btn" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                    <div id="rag-results" class="rag-results">
+                        <!-- Search results will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Tab -->
+        <div id="status-tab" class="tab-content">
+            <div class="panel">
+                <h2>System Status</h2>
+                <button id="refresh-status-btn" class="btn btn-secondary">
+                    <i class="fas fa-sync"></i> Refresh
+                </button>
+                <div id="status-display" class="status-display">
+                    <!-- Status will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 God Agent - Ultimate AI Assistant | Powered by Gemini & Ollama</p>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

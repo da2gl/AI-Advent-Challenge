@@ -1,0 +1,10 @@
+# Ignore SQLite database files
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# But keep this directory
+!.gitignore
+/chroma_db/
+/squad_cache/
